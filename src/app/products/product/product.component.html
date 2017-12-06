@@ -1,0 +1,10 @@
+<div class="product tumbnail thumbnail-3">
+	<a routerLink="/products/details/{{id}}">
+		<img src="{{picture}}" alt="">
+	</a>
+    <div class="caption">
+    	<h6> <a routerLink="/products/details/{{id}}">{{name}}</a> </h6>
+    	<span class="price sale"> {{getCurrency()}}{{price}} </span>
+    </div>
+</div>
+
