@@ -10,6 +10,7 @@ import {ProductsService} from './services/products.service';
 import {CartService} from './services/cart.service';
 import { PopulatedCartRouteGuard } from "./route-gaurds/populated-cart.route-gaurd";
 
+
 import {Location, CommonModule} from '@angular/common';
 
 @NgModule({
@@ -23,7 +24,12 @@ import {Location, CommonModule} from '@angular/common';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [ProductsService, CartService, Location, PopulatedCartRouteGuard],
+  providers: [
+    ProductsService, 
+    CartService, 
+    Location, 
+    PopulatedCartRouteGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@
       	<div class="navbar-header">
       		<a class="navbar-brand" href="#">Assessment</a>
     	</div>
-    	<a *ngIf="location.path() !== '/products'" routerLink="/" class="btn btn-default navbar-btn">Back</a>
+    	<a *ngIf="location.path() !== '/products'" (click)="location.back()" class="btn btn-default navbar-btn">Back</a>
     	<a routerLink="/products/cart" class="btn btn-default navbar-btn navbar-right" style="margin-right: 1em;"><i class="glyphicon glyphicon-shopping-cart"></i>  {{itemCount}}</a>
   	</div><!-- /.container-fluid -->
 </nav>

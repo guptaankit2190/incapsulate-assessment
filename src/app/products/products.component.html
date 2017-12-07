@@ -1,1 +1,16 @@
-<product-list [items]="items"></product-list>
+<div class="container">
+   <h1 class="text-center text-muted">Product catalog</h1>
+   	<div class="row product-parent" infiniteScroll
+		    [infiniteScrollDistance]="1"
+		    [infiniteScrollThrottle]="50"
+		    (scrolled)="onScroll()">
+	   	<div class="col-xs-6 col-md-4" *ngFor="let item of items" style="text-align: center;">
+		    <product
+		      [id]="item.id"
+		      [name]="item.name"
+		      [price]="item.price"
+		      [picture]="item.picture">
+		    </product>
+	  	</div>
+  	</div>
+</div>

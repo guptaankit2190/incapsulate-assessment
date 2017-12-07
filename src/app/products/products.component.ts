@@ -12,13 +12,25 @@ import {CartService} from '../services/cart.service';
 export class ProductsComponent implements OnInit {
 
 	public items: Product[] = [];
+	public products: Product[] = [];
+	public currentPage: number = 1;
 
-	constructor(private productsServices: ProductsService, private cartService: CartService) {
-
-		productsServices.getProducts()
-		  .subscribe(_ => this.items = _);
+	constructor(private productsServices: ProductsService
+		, private cartService: CartService) {
 	}
 
 	ngOnInit() {
+		this.productsServices.getProducts()
+		  .subscribe((products) => { 
+		  	this.products = products; 
+		  	this.items = this.products.slice(this.currentPage, 12);
+		});
+	}
+
+	onScroll () {
+		this.currentPage++;
+		this.items.push(...this.products.slice(this.currentPage, 12));
+		//console.log(this.items);
+	    //console.log('scrolled!! '+ this.currentPage);
 	}
 }

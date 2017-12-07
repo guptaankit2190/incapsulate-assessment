@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../shared/product';
@@ -15,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
 
 	constructor(private route: ActivatedRoute
 		, private router: Router
+		, private location: Location
 		, private productsService: ProductsService
 		, private cartService: CartService) {
 		this.product = new Product();
@@ -33,7 +35,8 @@ export class ProductDetailsComponent implements OnInit {
 
 	public addToCart(product: Product) {
 		this.cartService.addToCart(product);
-		this.router.navigateByUrl('/');
+		//this.router.navigateByUrl('/');
+		this.location.back();
 	}
 
 }
